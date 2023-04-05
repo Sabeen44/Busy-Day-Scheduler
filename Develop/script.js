@@ -14,42 +14,18 @@ $("#currentDay").text(todayDate);
 //How to save to local storage on click?
 
 $(document).ready(function () {
-  function timeKeeper() {
-    var currentTime = dayjs().hour();
+  var currentTime = dayjs().hour();
 
-    console.log(currentTime);
-
-    $(".time-block").each(function () {
-      var blockTime = parseInt($(this).attr("id"));
-
-      console.log(blockTime);
-
-      // To check the time and add the classes for background indicators
-
-      // TODO: Add code to apply the past, present, or future class to each time
-      // block by comparing the id to the current hour. HINTS: How can the id
-      // attribute of each time-block be used to conditionally add or remove the
-      // past, present, and future classes? How can Day.js be used to get the
-      // current hour in 24-hour time?
-
-      if (blockTime < currentTime) {
-        $(this).removeClass("future");
-        $(this).removeClass("present");
-        $(this).addClass("past");
-      } else if (blockTime === currentTime) {
-        $(this).removeClass("past");
-        $(this).removeClass("future");
-        $(this).addClass("present");
-      } else {
-        $(this).removeClass("present");
-        $(this).removeClass("past");
-        $(this).addClass("future");
-      }
-    });
-  }
-
-  timeKeeper();
+  console.log(currentTime);
 });
+
+// To check the time and add the classes for background indicators
+
+// TODO: Add code to apply the past, present, or future class to each time
+// block by comparing the id to the current hour. HINTS: How can the id
+// attribute of each time-block be used to conditionally add or remove the
+// past, present, and future classes? How can Day.js be used to get the
+// current hour in 24-hour time?
 
 //
 // TODO: Add code to get any user input that was saved in localStorage and set
