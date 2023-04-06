@@ -2,38 +2,51 @@
 
 ## Overview
 
-A simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+A simple daily planner application that allows a user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery. It also makes use of Day.js for day and time.
 
-You'll need to use the [Day.js](https://day.js.org/en/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Day.js in the browser.
+## Technologies Used
 
-## User Story
+html
+css
+jquery
+bootstrap
+Day.js
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+## Code Summary
 
-## Acceptance Criteria
+Following is the driving function. CurrentTime was set to a 24 hours format using Day.js and blockTime represents the time of each hour in the planner. Classes of past,present and future are added or removed depending if blockTime on the planner is greater, equalor less than the currentTime.
+Not shown here-each timeblock is color coded using css style to indicate whether it is in the past, present, or future. Also, the user entry is saved to the local storage.
 
-```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+function timeKeeper() {
+var currentTime = dayjs().hour();
 
-The following animation demonstrates the application functionality:
+    console.log(currentTime);
 
-<!-- @TODO: create ticket to review/update image) -->
+    $(".time-block").each(function () {
+      var blockTime = parseInt($(".time-block").attr("id"));
 
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
+
+
+      if (blockTime < currentTime) {
+        $(".time-block").removeClass("future");
+        $(".time-block").removeClass("present");
+        $(".time-block").addClass("past");
+      } else if (blockTime === currentTime) {
+        $(".time-block").removeClass("future");
+        $(".time-block").addClass("present");
+        $(".time-block").removeClass("past");
+      } else if (blockTime > currentTime) {
+        $(".time-block").addClass("future");
+        $(".time-block").removeClass("present");
+        $(".time-block").removeClass("past");
+      }
+    });
+
+}
+timeKeeper();
+
+## Demo
+
+## Acknowledgement:
+
+UCBerkely Web Development Bootcamp Team for providing the starter code.
