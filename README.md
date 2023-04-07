@@ -10,7 +10,7 @@ html
 css
 jquery
 bootstrap
-Day.js
+day.js
 
 ## Code Summary
 
@@ -22,31 +22,34 @@ var currentTime = dayjs().hour();
 
     console.log(currentTime);
 
-    $(".time-block").each(function () {
-      var blockTime = parseInt($(".time-block").attr("id"));
-
-
+    $(.saveBtn).each(function () {
+      var blockTime = parseInt($(this).attr("id"))
 
       if (blockTime < currentTime) {
-        $(".time-block").removeClass("future");
-        $(".time-block").removeClass("present");
-        $(".time-block").addClass("past");
+        $(this).removeClass("future");
+        $(this).removeClass("present");
+        $(this).addClass("past");
       } else if (blockTime === currentTime) {
-        $(".time-block").removeClass("future");
-        $(".time-block").addClass("present");
-        $(".time-block").removeClass("past");
+        $(this).removeClass("future");
+        $(this).addClass("present");
+        $(this).removeClass("past");
       } else if (blockTime > currentTime) {
-        $(".time-block").addClass("future");
-        $(".time-block").removeClass("present");
-        $(".time-block").removeClass("past");
+        $(this).addClass("future");
+        $(this).removeClass("present");
+        $(this).removeClass("past");
       }
-    });
+    });}
 
-}
 timeKeeper();
 
 ## Demo
 
+<img src="./Assets/demo.gif>" alit="Project GIF" width="500">
+
 ## Acknowledgement:
 
 UCBerkely Web Development Bootcamp Team for providing the starter code.
+
+## code by
+
+Sabeen Chaudhry

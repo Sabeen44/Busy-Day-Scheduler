@@ -4,6 +4,9 @@ $(document).ready(function () {
   var todayDate = dayjs().format("dddd, MMM YYYY");
   $("#currentDay").text(todayDate);
 
+  var time = dayjs().format("hh:mm:ss");
+  $("#currentDay").text(time);
+
   function timeKeeper() {
     //current time set using dayjs
     var currentTime = dayjs().hour();
