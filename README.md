@@ -44,7 +44,7 @@ timeKeeper();
 
 ## Demo
 
-<img src=".\Assets\demo.gif>" alt="Project GIF" width="500">
+<img src="demo.gif>" alt="Project GIF" width="500">
 
 ## Acknowledgement:
 
