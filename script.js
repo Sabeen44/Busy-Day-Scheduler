@@ -21,7 +21,6 @@ $(document).ready(function () {
 
       // getting the values of the textarea elements saved in the local storage
       var textBlock = localStorage.getItem(blockTime);
-      console.log(textBlock);
 
       $(this).children(".description").val(textBlock);
 
